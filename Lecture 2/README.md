@@ -1,6 +1,6 @@
 
 
-# _Lecture_ 02 - Igniting Our App_
+# Lecture 02 - Igniting Our App
 
 ## Coding :
 
