@@ -7,20 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <p>Hello top of root</p>
     <div id="root">
-        <h1>Akshat is here!</h1>
+        <!--  hello world using html -->
+        <h1>Hello World! from HTML</h1> 
+        <!-- but this will be replaced by react root.render method, only seen for a split second when the page loads -->
     </div>
+    <p>Hello bottom of root</p>
     <!-- <script>
+        //  hello world using javascript
         const heading = document.createElement("h1");
         heading.innerHTML = "Hello World from Javascript!";
 
         const root = document.getElementById("root");
         root.appendChild(heading);
     </script> -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+     <!-- get react in our project using cdn links - this is the first way of injecting react into our project -->
+      <!-- this contains the pure react code in js -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> 
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <script src="App.js"></script>
+    <script src="./App.js"></script>
     <!-- order of these script files matter else it'll throw error -->
 </body>
 </html>
+
+<!-- at the end of the day react is just js -->
+ <!-- react is a library that helps us to create user interfaces, can be applied to smaller portion of the page. -->
