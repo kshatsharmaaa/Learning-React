@@ -138,3 +138,14 @@ A:  `npm install`
 
 
 All that we have done till now is basically what create react app does....
+
+
+### steps:
+
+- npm init
+- npm install -D parcel
+- npx parcel index.html
+- comment the cdn links that is not the preferred way to get react into the project.
+- npm install react
+- npm install react-dom
+- to check the build -- npx parcel build index.html
