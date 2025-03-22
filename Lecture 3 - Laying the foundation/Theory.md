@@ -80,5 +80,5 @@ A: The Difference is stated below:
 <TitleComponent />
 ```
 
-
+### steps
 we defined scripts in package.json file and used npm run start / npm start  instead of npx parcel index.html
