@@ -62,6 +62,7 @@ const Header = () => {
   )
 }
 
+// this data below is copied from old swiggy webiste inspect element 
 const resList = [
   {
     type: 'restaurant',
@@ -2109,6 +2110,7 @@ const resList = [
 const RestaurantCard = (props) => {
   const {resData} = props;
 
+  // destructuring the resData object to get the required properties from the object
   const {cloudinaryImageId, name, cuisines, avgRating, costForTwo, deliveryTime} = resData?.data;
 
   return (
@@ -2124,7 +2126,7 @@ const RestaurantCard = (props) => {
           'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/' +
           cloudinaryImageId
         }
-        alt="Biryani"
+        alt="image"
       />
       {/* <h3>{props.resName}</h3> 
         <h4>{props.cuisine}</h4> */}
@@ -2133,6 +2135,7 @@ const RestaurantCard = (props) => {
       <h4>{resData.data.avgRating} stars</h4>
       <h4>₹{resData.data.costForTwo / 100} FOR TWO</h4>
       <h4>{resData.data.deliveryTime} minutes</h4> */}
+
       <h3>{name}</h3>
       <h4>{cuisines.join(', ')}</h4>
       <h4>{avgRating} stars</h4>
@@ -2164,9 +2167,12 @@ const Body = () => {
         <RestaurantCard resData={resList[12]} /> */}
 
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
-
+        {/* we dan use for loop also but map is preferrred */}
         {resList.map((restaurant) => (
           <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          // resData here is the prop that we are passing to the RestaurantCard component
+          // key part is added after the map function, because it is a special prop that is used by react to keep track of the elements in the list. if we dont do this there will be a warning in the console
+          //  make a habit to add key prop to the child elements
         ))}
 
         {/* // * or */}
@@ -2177,7 +2183,7 @@ const Body = () => {
           <RestaurantCard key={index} resData={restaurant} />
         ))}
 
-        {/* // * Why should we provide key property to the child elements - When creating a list in the UI from an array with JSX, you should add a key prop to each child and to any of its' children. React uses the key prop create a relationship between the component and the DOM element. The library uses this relationship to determine whether or not the component should be re-rendered.
+        {/* // * Why should we provide key property to the child elements - When creating a list in the UI from an array with JSX, you should add a key prop to each child and to any of its' children. React uses the key prop create a relationship between the component and the DOM element. The library uses this relationship to determine whether or not the component should be re-rendered, if any updates are made to the component.
          */}
         
         
@@ -2187,7 +2193,7 @@ const Body = () => {
   )
 } 
 
-// * What is Config-driven-UI -> A "config-driven UI" is a user interface that is built and configured using a declarative configuration file or data structure, rather than being hardcoded.
+// * What is Config-driven-UI -> A "config-driven UI" is a user interface that is built and configured using a declarative configuration file or data structure, rather than being hardcoded. Website driven by data. 
 
 // * Every company now-a-days follows these approach, because our Appications need to be Dynamic These Days
 
