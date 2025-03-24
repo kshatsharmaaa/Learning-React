@@ -18,5 +18,5 @@ const Header = () => {
     )
   }
 
-
+// to export header file so that we can import in app.js
 export default Header;

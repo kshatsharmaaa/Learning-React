@@ -11,3 +11,6 @@ export const LOGO_URL = "https://i.pinimg.com/originals/c0/fb/ed/c0fbedf13d4d6f0
 //NAMED EXPORT
 
 // write export infront of var 
+
+// in single file i can onlyhave one default exports
+// named exports are used when we have to export multiple items from single file
