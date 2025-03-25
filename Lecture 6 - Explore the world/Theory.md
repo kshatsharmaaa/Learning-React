@@ -65,7 +65,7 @@ Shimmer UI is a great way for loading the applications. Instead of showing a loa
 A: A `JS expression` returns a value that we use in the application. for example:
 
 ```
-1 + 2 // expresses
+1 + 2 // expresses 3
 "foo".toUpperCase() // expresses 'FOO'
 console.log(2) // logs '2'
 isTrue ? true : false // returns us a true or false value based on isTrue value
