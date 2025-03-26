@@ -1,4 +1,4 @@
-## Namaste React Course by Akshay Saini
+
 
 # Episode 06 - Exploring the world
 
