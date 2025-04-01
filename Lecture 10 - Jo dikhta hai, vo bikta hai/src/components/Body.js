@@ -42,15 +42,15 @@ const Body = () => {
 
   return listOfRestaurants.length === 0 ?  <Shimmer/> : (
     <div className="body">
-      <div className="filter">
+      <div className="flex">
 
       {/* Search functionality */}
-      <div className="search">
+      <div className="m-4 p-4">
       {/* the input box is bind to searchtext through value, which is empty string initially, if we try to enter anything via ui it wont change so this is why we need onChange */}
       {/*  this is done to update the search text */}
       {/* whenever we type anything in input box react is rerendering the whole body component but making changes only in input box */}
-        <input type="text" className="search-box" value={searchText} onChange={(e) => {setSearchText(e.target.value)}}/>
-        <button onClick={() => {
+        <input type="text" className="border border-solid border-black shadow-md rounded-md" value={searchText} onChange={(e) => {setSearchText(e.target.value)}}/>
+        <button className="px-4 py-0.5 bg-green-100 m-4 rounded-lg shadow-md" onClick={() => {
           // filter the restro cards and update the ui
           // find the input box
           // need the search text here 
@@ -60,10 +60,9 @@ const Body = () => {
           // setlistOfRestaurants(filteredRestaurant); this is wrong coz it only works for one time then u search again and it starts searching from already filtered resto
           setFilteredRestaurant(filteredRestaurant); // initiallyit wont show anything if u put [] in case of api calls and u have to add setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards); to the fetchdata function to render it but as the apinot working i think im gonna use reslist as initial
         }}>Search</button>
-      </div>
 
         <button
-          className="filter-btn"
+          className="px-4 py-0.5 bg-gray-100 m-4 rounded-lg shadow-md"
           onClick={() => {
             // filter logic here
             const filteredList = listOfRestaurants.filter(
@@ -75,7 +74,10 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res-container">
+        
+      </div>
+
+      <div className="flex flex-wrap">
 
         {filteredRestaurant.map((restaurant) => (
           // key is used to give a unique id to each element and should be written inside the parent

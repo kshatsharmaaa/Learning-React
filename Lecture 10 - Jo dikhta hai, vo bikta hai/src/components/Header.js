@@ -9,7 +9,7 @@ const Header = () => {
   // let btnName = "Login"
 
   // using state variable
-  const [btnNameReact, setBtnNameReact] = useState("login"); // variable, fn to update this variable 
+  const [btnNameReact, setBtnNameReact] = useState("Login"); // variable, fn to update this variable 
 
   const onlineStatus = useOnlineStatus();
 
@@ -21,22 +21,22 @@ const Header = () => {
   // }, [btnNameReact])
 
     return (
-      <div className="header">
+      <div className="flex justify-between shadow-xs ">
         <div className="logo-container">
-          <img className="logo" src={LOGO_URL} alt="logo"/>
+          <img className="w-28" src={LOGO_URL} alt="logo"/>
         </div>
-        <div className="nav-items">
-          <ul>
-            <li>Online Status: {onlineStatus ? "+" : "-"}</li>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/grocery">Grocery</Link></li>
-            <li>Cart</li>
+        <div className="flex items-center ">
+          <ul className="flex p-4 m-4">
+            <li className="px-4">Online Status: {onlineStatus ? "✔" : "🔴"}</li>
+            <li className="px-4"><Link to="/">Home</Link></li>
+            <li className="px-4"><Link to="/about">About</Link></li>
+            <li className="px-4"><Link to="/contact">Contact</Link></li>
+            <li className="px-4"><Link to="/grocery">Grocery</Link></li>
+            <li className="px-4">Cart</li>
           {/*     using local js variable      
             <button className="login" onclick={() => {btnName = "Logout"}}>{btnName}</button>
           */}
-            <button className="login" onClick={() => {btnNameReact === "login" ? setBtnNameReact("logout") : setBtnNameReact("login")}}>{btnNameReact}</button>
+            <button className="px-4 login" onClick={() => {btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Logout")}}>{btnNameReact}</button>
           </ul>
         </div>
       </div>
