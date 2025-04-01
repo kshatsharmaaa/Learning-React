@@ -1,14 +1,24 @@
 import React, {useState, useEffect} from 'react'
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
-import { MENU_API } from '../utils/constants';
+// import { MENU_API } from '../utils/constants';
+import useRestaurantMenu from '../utils/useRestaurantMenu';
 
 const RestaurantMenu = () => {
 
-  const [resInfo, setResInfo] = useState(null);
+  // const [resInfo, setResInfo] = useState(null);
 
   const {resId} = useParams();
 
+  // can i abstract my fetching data logic ?
+  // customHook - this will fetch the data and give it to restro menu
+  // hooks are normal js functions
+  // best way to create custom hooks is to use use prefix and create it inside utils
+  // file name as same as function name
+
+  const resInfo = useRestaurantMenu(resId); // all the trouble of fetching data is handled by custom hook in useRestaurantMenu file
+
+/*
     useEffect(() => {
         fetchMenu();
     }, []);
@@ -19,6 +29,7 @@ const RestaurantMenu = () => {
         // console.log(json);
         setResInfo(json.data);
     }
+*/
 
     if(resInfo === null)return  <Shimmer/>;
 
