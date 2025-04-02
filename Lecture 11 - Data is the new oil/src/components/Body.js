@@ -1,17 +1,19 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withOpenLabel } from "./RestaurantCard";
 import resList from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   
   const [listOfRestaurants, setlistOfRestaurants] = useState(resList); // Local State Variable
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const RestaurantCardOpen = withOpenLabel(RestaurantCard);
 
-
+  // console.log("hi ", listOfRestaurants);
   
   useEffect(() => {
     fetchData(); // now write this function
@@ -23,7 +25,7 @@ const Body = () => {
       // 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.624480699999999&page_type=DESKTOP_WEB_LISTING'
     ); 
     const json = await data.json(); 
-    console.log(json);
+    
     // optional chaining - ?.
     setlistOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
     setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
@@ -34,6 +36,8 @@ const Body = () => {
 
   if(onlineStatus === false) return <h1>Looks like you're offline!! Please check your internet.</h1>
   
+  const {loggedInUser, setUserName} = useContext(UserContext)
+
 
   // loading screen - conditional rendering
   // if(listOfRestaurants.length === 0) return <Shimmer/> // Shimmer - Skeleton UI
@@ -74,6 +78,13 @@ const Body = () => {
         </button>
       </div>
 
+      <div className="m-4 px-4 py-8">
+        {/* this is to modify username */}
+        <label htmlFor="">UserName:  </label>
+        <input type="text" className=" px-1 border border-solid border-black shadow-md rounded-md" value={loggedInUser} onChange={(e) => setUserName(e.target.value)}/>
+
+      </div>
+
         
       </div>
 
@@ -81,7 +92,11 @@ const Body = () => {
 
         {filteredRestaurant.map((restaurant) => (
           // key is used to give a unique id to each element and should be written inside the parent
-          <Link key={restaurant.info.id} to={"restaurants/" + restaurant.info.id}><RestaurantCard  resData={restaurant} /></Link>
+          <Link key={restaurant.info.id} to={"restaurants/" + restaurant.info.id}>
+            {/* if the restaurant is open add a open label to it */
+            restaurant.info.isOpen ? <RestaurantCardOpen resData={restaurant}/> : <RestaurantCard  resData={restaurant} />
+            }
+            </Link>
         ))}
 
       </div>

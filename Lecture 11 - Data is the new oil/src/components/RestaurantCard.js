@@ -18,4 +18,21 @@ const RestaurantCard = (props) => {
     )
   }
 
+
+  // HIGHER ORDER COMPONENT
+
+  // input - RestaurantCard
+  // output - RestaurantCardOpen
+
+export const withOpenLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div className="">
+        <label className="absolute bg-black text-white mx-4  px-2 rounded-lg">OPEN</label>
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  } // this is the new component i am returning (function)
+}
+
 export default RestaurantCard;

@@ -1,4 +1,4 @@
-## Namaste React Course by Akshay Saini
+
 
 # Episode 11 - Data is the new oil
 
