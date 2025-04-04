@@ -1,4 +1,4 @@
-## Namaste React Course by Akshay Saini
+
 
 # Episode 13 - Time for the Test
 
