@@ -61,6 +61,12 @@
 - string is the ddescription of the test
 - clbk fn is the implementation 
 - npm run test
+- Lets test our components now
+- we'll write unit testing
+- Lets see whether our component is loaded or not - Contactjs
+- npm i @babel/preset-react
+- Add this to babel config yr
+- npm i -D @testing-library/jest-dom
 
 
 
